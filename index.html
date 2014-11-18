@@ -2,25 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Firebase Try</title>
+  <title>Firebase Test</title>
   <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
   <script src="javascript/main.js"></script>
+  <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-  
-    <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
+  <div class="container">
+
 
     <button class="fb-login">Facebook login</button>
     <button class="tw-login">Twitter login</button>
     <button class="login">Login</button>
     <button class="register">Register</button>
     <button class="anonymous">Anonymous</button>
-    <button class="logout">Logout</button>
+    <button class="logout">Logout</button><br>
 
-    <div id="messagesDiv"></div>
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'>
 
+    <div class="messagesDiv"></div>
 
+    <!--TODO registration form-->
+    <!--TODO login form-->
+  </div>
 </body>
 </html>

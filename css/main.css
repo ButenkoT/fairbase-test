@@ -1,0 +1,23 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #ffebcd;
+    font-size: 16px;
+    font-family: Verdana, serif;
+}
+
+.container{
+    max-width: 960px;
+    margin:auto;
+    text-align: center;
+}
+
+.messagesDiv{
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+input, button{
+    margin-top: 15px;
+    height: 20px;
+}

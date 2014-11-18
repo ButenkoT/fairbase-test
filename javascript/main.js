@@ -4,19 +4,20 @@ $(document).ready(function () {
 
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
-      var text = $('#messageInput').val();
+      var name = $('#nameInput').val(),
+        $messageInput = $('#messageInput'),
+        text = $messageInput.val();
+
       //saving data to db
       // ref.set('User ' + name + ' says ' + text);
 
       //creating an object, it ll automatically create locations for name and text as children of ref location
       // ref.set({name: name, text: text});
 
-
       //this will append info to the list
       ref.push({name: name, text: text});
 
-      $('#messageInput').val('');
+      $messageInput.val('');
     }
   });
 
@@ -27,14 +28,13 @@ $(document).ready(function () {
   });
 
   function displayChatMessage(name, text) {
-    var $messagesDiv = $('#messagesDiv');
-    $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($messagesDiv);
+    var $messagesDiv = $('.messagesDiv');
+    $('<div></div>').text(text).prepend($('<em></em>').text(name + ': ')).appendTo($messagesDiv);
     $messagesDiv[0].scrollTop = $messagesDiv[0].scrollHeight;
   };
 
 
   $(document.body)
-
 
     .on('click', '.fb-login', function () {
       ref.authWithOAuthPopup("facebook", function (error, authData) {
@@ -47,20 +47,25 @@ $(document).ready(function () {
         }
       }, {scope: "email,public_profile"});
     })
+
     .on('click', '.logout', function () {
       ref.unauth();
 
       //TODO call showLogin function
     })
+
     .on('click', '.tw-login', function(){
       //TODO twitter login here
     })
+
     .on('click', '.register', function(){
       //TODO registration + saving data
     })
+
     .on('click', '.login', function(){
       //TODO login with email and password, check on data in db
     })
+
     .on('click', '.anonymous', function(){
       //TODO enter stay anon + showLogin function
     })
@@ -78,6 +83,5 @@ $(document).ready(function () {
       // user is logged out
     }
   });
-
 
 });
