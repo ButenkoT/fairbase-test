@@ -21,3 +21,7 @@ input, button{
     margin-top: 15px;
     height: 20px;
 }
+
+.hidden{
+    display:none;
+}
