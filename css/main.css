@@ -6,6 +6,23 @@ body{
     font-family: Verdana, serif;
 }
 
+header{
+    border: 1px solid white;
+    text-align: center;
+    height: 80px;
+}
+
+.btn{
+    background: url("../images/brick.jpg");
+    border-radius: 4px;
+    height: 35px;
+    width: 95px;
+    font-size: 16px;
+    color:white;
+    margin-left: 10px;
+    line-height: 10px;
+}
+
 .container{
     max-width: 960px;
     margin:auto;
@@ -31,7 +48,10 @@ input, button{
     height: 600px;
     width: 800px;
     margin: 20px auto;
+}
 
+input{
+    alight: left;
 }
 
 .info{
