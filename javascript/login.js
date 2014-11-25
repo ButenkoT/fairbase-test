@@ -45,15 +45,66 @@ $(document).ready(function () {
     })
 
     .on('click', '.register', function () {
-      //TODO registration + saving data
+      $('#main').empty();
+      var registrationForm = $('#userNew').html();
+      //var registrationFormHTML = Handlebars.compile(registrationForm);
+
+      $('#main').append(registrationForm);
+      //$('#main').append(registrationFormHTML);
+
+      $('#userNew').on('click', 'submit', function (e) {
+        e.preventDefault();
+        ref.createUser({
+          nickname : $('#user_nickname').val(),
+          email    : $('#user_email').val(),
+          password : $('#user_password').val()
+        }, function(error) {
+          if (error === null) {
+            alert('Success!');
+            console.log("User created successfully" + user_nickname + user_email);
+          } else {
+            console.log("Error creating user:", error);
+          }
+        });
+      });
     })
 
     .on('click', '.login', function () {
-      //TODO login with email and password, check on data in db
+      $('#main').empty();
+      var loginForm = $('#userLogin').html();
+
+      $('#main').append(loginForm);
+
+      $('#userLogin').on('click', 'submit', function (e) {
+        e.preventDefault();
+        ref.authWithPassword({
+          email    : $('#user_email').val(),
+          password : $('#user_password').val()
+        }, function(error, authData) {
+          if (error === null) {
+            // user authenticated with Firebase
+            console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+          } else {
+            console.log("Error authenticating user:", error);
+          }
+        });
+      }, {
+        remember: "sessionOnly"
+      });
     })
 
     .on('click', '.anonymous', function () {
-      //TODO enter stay anon + showLogin function
+      ref.authAnonymously(function(error, authData) {
+        if (error) {
+          // There was an error logging in anonymously
+          console.log('There was an error logging in anonymously:' + error);
+        } else {
+          // User authenticated with Firebase
+          console.log(authData.accessToken);
+        }
+      }, {
+        remember: "sessionOnly"
+      });
     })
   ;
 
@@ -64,6 +115,10 @@ $(document).ready(function () {
       console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
       $('.log').addClass('hidden');
       $('.logout').removeClass('hidden');
+      $('#main').empty();
+      var introPage = $('#introPage').html();
+
+      $('#main').append(introPage);
     } else {
       // user is logged out
       console.log('logged out');

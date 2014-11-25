@@ -25,3 +25,11 @@ input, button{
 .hidden{
     display:none;
 }
+
+.intro{
+    border:2px solid brown;
+    height: 600px;
+    width: 800px;
+    margin: 20px auto;
+
+}

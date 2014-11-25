@@ -1,10 +1,7 @@
-//reference to the db at Firebase
+
 window.ref = new Firebase('https://blazing-torch-6289.firebaseio.com/');
 
 $(document).ready(function () {
-
-
-
 
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
