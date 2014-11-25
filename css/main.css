@@ -1,7 +1,7 @@
 body{
+    background: url("../images/wallpaper.jpg");
     margin:0;
     padding:0;
-    background-color: #ffebcd;
     font-size: 16px;
     font-family: Verdana, serif;
 }
@@ -13,7 +13,7 @@ body{
 }
 
 .messagesDiv{
-    border: 1px solid black;
+    border: 1px solid white;
     margin: 20px 0;
 }
 
@@ -27,9 +27,44 @@ input, button{
 }
 
 .intro{
-    border:2px solid brown;
+    border:2px solid white;
     height: 600px;
     width: 800px;
     margin: 20px auto;
 
+}
+
+.info{
+
+    border: 20px solid #9D4E02;
+    border-radius: 30px;
+    height: 400px;
+    width: 600px;
+    margin: 30px auto;
+}
+
+.inner_info{
+    background: url("../images/chalkonboard.jpg");
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    font-size: 26px;
+    border: 10px solid #100D1B;
+    border-radius: 10px;
+    height: 380px;
+    width: 580px;
+}
+
+h2{
+    margin-top:0;
+}
+
+footer{
+    padding: 10px 30px 0 0;
+    text-align: right;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
 }

@@ -19,6 +19,7 @@
   <script src="javascript/login.js"></script>
   <script src="javascript/game_page.js"></script>
   <script src="javascript/board.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
@@ -39,30 +40,51 @@
 
     <!--registration form-->
     <script type="template/html" id="userNew">
-
-      <h2>Registration</h2>
-      <form action="" name="user">
-        Nickname: <input type="text" name="user_nickname" required="true" autofocus="true" ><br>
-        Email: <input type="email" name="user_email" required="true"><br>
-        Password: <input type="password" name="user_password" required="true"><br>
-        <input type="submit" value="Submit" />
-      </form>
+      <div class="info">
+        <div class="inner_info">
+          <h2>Registration</h2>
+          <form action="" name="user">
+            Nickname: <input type="text" name="user_nickname" required="true" autofocus="true" ><br>
+            Email: <input type="email" name="user_email" required="true"><br>
+            Password: <input type="password" name="user_password" required="true"><br>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
 
     </script>
 
     <!--login form-->
     <script type="template/html" id="userLogin">
-      <form action="" name="user">
-        Email: <input type="email" name="user_email" required="true"><br>
-        Password: <input type="password" name="user_password" required="true"><br>
-        <input type="submit" value="Submit" />
-      </form>
+      <div class="info">
+        <div class="inner_info">
+
+          <form action="" name="user">
+            Email: <input type="email" name="user_email" required="true"><br>
+            Password: <input type="password" name="user_password" required="true"><br>
+            <input type="submit" value="Submit" />
+          </form>
+
+        </div>
+      </div>
     </script>
 
     <!--info_page with play button-->
     <script type="template/html" id="introPage">
       <div class="intro">
-        <button>Play</button>
+        <div class="info">
+          <div class="inner_info">
+
+            <h2>Tic Tac Toe</h2>
+            <p>X always goes first. If a player is able to draw three X or three O in a row,
+                that player wins. If all nine squares are filled and neither player has three
+                in a row, the game is a draw.
+            </p>
+
+          </div>
+        </div>
+
+        <button class="btn_play">Play</button>
       </div>
     </script>
 
@@ -78,5 +100,9 @@
     </script>
 
   </div>
+
+<footer>
+  &copy; 2014 T.Butenko
+</footer>
 </body>
 </html>

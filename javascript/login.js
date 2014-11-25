@@ -124,7 +124,7 @@ $(document).ready(function () {
       console.log('logged out');
       $('.log').removeClass('hidden');
       $('.logout').addClass('hidden');
-
+      $('#main').empty();
     }
   });
 });
