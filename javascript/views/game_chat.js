@@ -1,3 +1,1 @@
-/**
- * Created by tetianabutenko on 25/11/2014.
- */
+//TODO put all chat code here

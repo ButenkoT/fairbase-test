@@ -4,27 +4,22 @@ app.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'register': 'userNew',
-    'login': 'userLoginS',
+    'login': 'userLogin',
     'info_page': 'infoPage',
     'game_page': 'gamePage',
     '*anythingElse': 'pageNotFound'
   },
 
   index: function () {
-    $('#main').empty()
-    //app.accounts.fetch().done(function () {
-    //  var appView = new app.Views.AppView({collection: app.accounts});
-    //  appView.render();
-    //});
+    $('#main').empty();
   },
 
   userNew: function () {
     var registration = new app.Views.UserRegistration();
   },
 
-  userLoginS: function () {
+  userLogin: function () {
     var userLog = new app.Views.UserLogin();
-    //userLog.render();
   },
 
   //showAccount: function(id){
@@ -39,11 +34,10 @@ app.Router = Backbone.Router.extend({
   //
   infoPage: function(){
     var infoPageShow = new app.Views.InfoPage();
-    infoPageShow.render();
   },
 
   gamePage: function(){
-    
+    var game = new app.Views.GamePage();
   },
 
   pageNotFound: function () {

@@ -1,9 +1,9 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.GamePage = Backbone.View.extend({
+app.Views.InfoPage = Backbone.View.extend({
   tag: 'div',
-  id: 'mainGamePage',
+  id: 'infoForm',
 
   initialize: function () {
 
@@ -12,9 +12,9 @@ app.Views.GamePage = Backbone.View.extend({
   },
 
   render: function () {
-    var game = $('#gamePage').html();
-    this.$el.html(game);
+    var info = $('#introPage').html();
+    this.$el.html(info);
   }
 
-  //TODO finish this page
 });
+

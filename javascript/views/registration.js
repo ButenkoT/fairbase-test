@@ -1,8 +1,6 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-
-
 app.Views.UserRegistration = Backbone.View.extend({
   tag: 'div',
   id: 'newUserForm',

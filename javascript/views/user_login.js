@@ -1,8 +1,6 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-
-
 app.Views.UserLogin = Backbone.View.extend({
   tag: 'div',
   id: 'logUserForm',
@@ -35,8 +33,6 @@ app.Views.UserLogin = Backbone.View.extend({
           console.log("Error authenticating user:", error);
           return;
         }
-        console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-        app.router.navigate('info_page', {trigger: true});
       },
       {remember: "sessionOnly"}
     );
