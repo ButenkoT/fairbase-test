@@ -3,108 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <title>TicTacToe</title>
-  <!--<script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>-->
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
-
-  <script src="https://cdn.firebase.com/js/client/2.0.3/firebase.js"></script>
-
-  <script src ="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-
-  <script src="https://cdn.firebase.com/libs/backbonefire/0.5.0/backbonefire.js"></script>
-  <script src="javascript/chat.js"></script>
-  <script src="javascript/login.js"></script>
-  <script src="javascript/game_page.js"></script>
-  <script src="javascript/board.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
 
-  <header>
-    <div class="log">
-      <button class="fb-login btn">Facebook</button>
-      <button class="tw-login btn">Twitter</button>
-      <button class="git-login btn">GitHub</button>
-      <button class="login btn">Login</button>
-      <button class="register btn">Register</button>
-      <button class="anonymous btn">Anonym</button>
-    </div>
-    <button class="logout btn">Logout</button><br>
-  </header>
-
-  <div class="container">
-
-    <div id="main"></div>
-
-    <!--registration form-->
-    <script type="template/html" id="userNew">
-      <div class="info">
-        <div class="inner_info">
-          <h2>Registration</h2>
-          <form action="" name="user">
-            Nickname: <input type="text" name="user_nickname" required="true" autofocus="true" ><br>
-            Email: <input type="email" name="user_email" required="true"><br>
-            Password: <input type="password" name="user_password" required="true"><br>
-            <input type="submit" value="Submit" class="submit" />
-          </form>
-        </div>
-      </div>
-
-    </script>
-
-    <!--login form-->
-    <script type="template/html" id="userLogin">
-      <div class="info">
-        <div class="inner_info">
-
-          <form action="" name="user">
-            Email: <input type="email" name="user_email" required="true"><br>
-            Password: <input type="password" name="user_password" required="true"><br>
-            <input type="submit" value="Submit" class="submit"/>
-          </form>
-
-        </div>
-      </div>
-    </script>
-
-    <!--info_page with play button-->
-    <script type="template/html" id="introPage">
-      <div class="intro">
-        <div class="info">
-          <div class="inner_info">
-
-            <h2>Tic Tac Toe</h2>
-            <p>X always goes first. If a player is able to draw three X or three O in a row,
-                that player wins. If all nine squares are filled and neither player has three
-                in a row, the game is a draw.
-            </p>
-
-          </div>
-        </div>
-
-        <button class="btn_play">Play</button>
-      </div>
-    </script>
-
-    <!--TODO game_page div-->
-    <!--TODO game_board and chat divs inside-->
-
-    <script type="template/html" id="gamePage">
-      <input type='text' id='nameInput' placeholder='Name'>
-      <input type='text' id='messageInput' placeholder='Message'>
-
-      <div class="messagesDiv"></div>
-
-    </script>
-
+<header>
+  <div class="log">
+    <button class="fb-login btn">Facebook</button>
+    <button class="tw-login btn">Twitter</button>
+    <button class="git-login btn">GitHub</button>
+    <!--<button class="login btn">Login</button>-->
+    <!--<button class="register btn">Register</button>-->
+    <a href="#login" id="login">Login</a>
+    <a href="#register" id="registration">Register</a>
+    <button class="anonymous btn">Anonym</button>
   </div>
+  <button class="logout btn">Logout</button>
+  <br>
+</header>
+
+<div class="container">
+
+  <div id="main"></div>
+
+  <!--registration form-->
+  <script type="template/html" id="userNew">
+    <div class="info user-register">
+      <div class="inner_info">
+        <h2>Registration</h2>
+
+        <form action="" method="post" name="user">
+          Nickname: <input type="text" name="nickname" required="true" autofocus="true"><br>
+          Email: <input type="email" name="email" required="true"><br>
+          Password: <input type="password" name="password" required="true"><br>
+          <input type="submit" value="Submit" class="submit"/>
+        </form>
+      </div>
+    </div>
+
+  </script>
+
+  <!--login form-->
+  <script type="template/html" id="userLogin">
+    <div class="info user-login">
+      <div class="inner_info">
+
+        <form action="" method="post" name="user">
+          Email: <input type="email" name="email" required="true"><br>
+          Password: <input type="password" name="password" required="true"><br>
+          <input type="submit" value="Submit" class="submit"/>
+        </form>
+
+      </div>
+    </div>
+  </script>
+
+  <!--info_page with play button-->
+  <script type="template/html" id="introPage">
+    <div class="intro">
+      <div class="info">
+        <div class="inner_info">
+
+          <h2>Tic Tac Toe</h2>
+
+          <p>X always goes first. If a player is able to draw three X or three O in a row,
+            that player wins. If all nine squares are filled and neither player has three
+            in a row, the game is a draw.
+          </p>
+
+        </div>
+      </div>
+
+      <button class="btn_play">Play</button>
+    </div>
+  </script>
+
+  <!--TODO game_page div-->
+  <!--TODO game_board and chat divs inside-->
+
+  <script type="template/html" id="gamePage">
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'>
+
+    <div class="messagesDiv"></div>
+
+  </script>
+
+</div>
 
 <footer>
   &copy; 2014 T.Butenko
 </footer>
+
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.0.3/firebase.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>-->
+<script src="https://cdn.firebase.com/libs/backbonefire/0.5.0/backbonefire.js"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/chat.js"></script>
+<script src="javascript/login.js"></script>
+<script src="javascript/game_page.js"></script>
+<script src="javascript/board.js"></script>
+<script src="javascript/router/Router.js"></script>
+<script src="javascript/views/registration.js"></script>
+<script src="javascript/views/user_login.js"></script>
+
+
 </body>
 </html>

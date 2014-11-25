@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   $(document.body)
 
@@ -44,57 +43,64 @@ $(document).ready(function () {
 
     })
 
-    .on('click', '.register', function () {
-      $('#main').empty();
-      var registrationForm = $('#userNew').html();
-      //var registrationFormHTML = Handlebars.compile(registrationForm);
+    //.on('click', '.register', function () {
+    //  $('#main').empty();
+    //  var registrationForm = $('#userNew').html();
+    //  //var registrationFormHTML = Handlebars.compile(registrationForm);
+    //
+    //  $('#main').append(registrationForm);
+    //  //$('#main').append(registrationFormHTML);
+    //})
 
-      $('#main').append(registrationForm);
-      //$('#main').append(registrationFormHTML);
-
-      $('#userNew').on('click', 'submit', function (e) {
-        e.preventDefault();
-        ref.createUser({
-          nickname : $('#user_nickname').val(),
-          email    : $('#user_email').val(),
-          password : $('#user_password').val()
-        }, function(error) {
-          if (error === null) {
-            alert('Success!');
-            console.log("User created successfully" + user_nickname + user_email);
-          } else {
-            console.log("Error creating user:", error);
-          }
-        });
-      });
-    })
-
-    .on('click', '.login', function () {
-      $('#main').empty();
-      var loginForm = $('#userLogin').html();
-
-      $('#main').append(loginForm);
-
-      $('#userLogin').on('click', 'submit', function (e) {
-        e.preventDefault();
-        ref.authWithPassword({
-          email    : $('#user_email').val(),
-          password : $('#user_password').val()
-        }, function(error, authData) {
-          if (error === null) {
-            // user authenticated with Firebase
-            console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-          } else {
-            console.log("Error authenticating user:", error);
-          }
-        });
-      }, {
-        remember: "sessionOnly"
-      });
-    })
+//     .on('submit', '.user-register form', function (e) {
+//       var $form = $(this);
+//       e.preventDefault();
+//       ref.createUser(
+//         {
+//           nickname: $form.find('[name="nickname"]').val(),
+//           email: $form.find('[name="email"]').val(),
+//           password: $form.find('[name="password"]').val()
+//         },
+//         function (error, auth) {
+//           if (error) {
+//             console.log("Error creating user:", error);
+//             return;
+//           }
+//           console.log("User created successfully" + auth.nickname + auth.email);
+//         }
+//       );
+//     })
+//
+//    .on('click', '.login', function () {
+//      $('#main').empty();
+//      var loginForm = $('#userLogin').html();
+//
+//      $('#main').append(loginForm);
+//
+//    })
+//
+//    .on('submit', '.user-login form', function (e) {
+//      var $form = $(this);
+//      e.preventDefault();
+//      ref.authWithPassword(
+//        {
+//          email: $form.find('[name="email"]').val(),
+//          password: $form.find('[name="password"]').val()
+//        },
+//        function (error, authData) {
+//          if (error === null) {
+//            // user authenticated with Firebase
+//            console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+//          } else {
+//            console.log("Error authenticating user:", error);
+//          }
+//        },
+//        {remember: "sessionOnly"}
+//      );
+//    })
 
     .on('click', '.anonymous', function () {
-      ref.authAnonymously(function(error, authData) {
+      ref.authAnonymously(function (error, authData) {
         if (error) {
           // There was an error logging in anonymously
           console.log('There was an error logging in anonymously:' + error);
@@ -112,19 +118,19 @@ $(document).ready(function () {
     if (authData) {
       //TODO show user name
       // user authenticated with Firebase
-      console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+      //console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
       $('.log').addClass('hidden');
       $('.logout').removeClass('hidden');
-      $('#main').empty();
-      var introPage = $('#introPage').html();
+      //$('#main').empty();
+      //var introPage = $('#introPage').html();
 
-      $('#main').append(introPage);
+      //$('#main').append(introPage);
     } else {
       // user is logged out
       console.log('logged out');
       $('.log').removeClass('hidden');
       $('.logout').addClass('hidden');
-      $('#main').empty();
+      //$('#main').empty();
     }
   });
 });
