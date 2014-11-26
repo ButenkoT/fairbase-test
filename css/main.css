@@ -7,7 +7,6 @@ body{
 }
 
 header{
-    /* border: 1px solid white; */
     text-align: center;
     height: 80px;
 }
@@ -30,7 +29,6 @@ header{
 }
 
 .messagesDiv{
-    border: 1px solid white;
     margin: 20px 0;
 }
 
@@ -76,6 +74,31 @@ input{
 
 h2{
     margin-top:0;
+}
+
+.game_window{
+    border: 2px solid white;
+    width: 960px;
+    height: 600px;
+    margin: 10px auto;
+}
+
+.game_board{
+    border: 1px dashed white;
+    width: 550px;
+    height: 550px;
+    display:inline-block;
+    margin-left: 0;
+}
+
+.chat{
+    background: url("../images/chatboard.jpg");
+    border: 1px solid white;
+    width: 300px;
+    height: 550px;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
 }
 
 footer{

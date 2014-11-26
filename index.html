@@ -80,11 +80,18 @@
   <!--TODO game_board and chat divs inside-->
 
   <script type="template/html" id="gamePage">
-    <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
+    <div class="game_window">
 
-    <div class="messagesDiv"></div>
+      <div class="game_board"></div>
 
+      <div class="chat">
+        <!--<input type='text' id='nameInput' placeholder='Name'>-->
+        <input type='text' id='messageInput' placeholder='Message'>
+
+        <div class="messagesDiv"></div>
+      </div>
+
+    </div>
   </script>
 
 </div>
@@ -92,7 +99,6 @@
 <footer>
   &copy; 2014 T.Butenko
 </footer>
-
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
@@ -106,6 +112,8 @@
 <script src="javascript/views/registration.js"></script>
 <script src="javascript/views/user_login.js"></script>
 <script src="javascript/views/game_info.js"></script>
+<script src="javascript/models/game_page_model.js"></script>
+<script src="javascript/collections/game_page_collection.js"></script>
 <script src="javascript/views/game_page.js"></script>
 
 
