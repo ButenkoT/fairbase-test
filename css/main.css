@@ -3,6 +3,7 @@ body{
     margin:0;
     padding:0;
     font-size: 16px;
+    color:white;
     font-family: Verdana, serif;
 }
 
@@ -11,7 +12,7 @@ header{
     height: 80px;
 }
 
-.btn{
+.btn, header a{
     background: url("../images/brick.jpg");
     border-radius: 4px;
     height: 35px;
@@ -22,6 +23,15 @@ header{
     line-height: 10px;
 }
 
+header a {
+    background-size: cover;
+    padding: 8px 25px;
+    text-decoration: none;
+}
+
+#registration{
+    padding: 8px 14px;
+}
 .container{
     max-width: 960px;
     margin:auto;
@@ -42,14 +52,13 @@ input, button{
 }
 
 .intro{
-    /* border:2px solid white; */
     height: 600px;
     width: 800px;
     margin: 20px auto;
 }
 
 input{
-    alight: left;
+    text-align: left;
 }
 
 .info{
@@ -102,10 +111,6 @@ h2{
     vertical-align: top;
 }
 
-.cell p{
-   display: inline-block;
-}
-
 .chat{
     background: url("../images/chatboard.jpg");
     width: 290px;
@@ -116,7 +121,7 @@ h2{
     margin-left: 20px;
     text-align: left;
     padding: 5px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 p{
