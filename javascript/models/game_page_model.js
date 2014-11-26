@@ -2,11 +2,7 @@ var app = app || {};
 app.Models = app.Models || {};
 
 app.Models.GamePage = Backbone.Firebase.Model.extend({
-
   urlRoot: 'https://blazing-torch-6289.firebaseio.com#game_page',
-  //defaults: {
-  //  amount: 0
-  //}
   autoSync: true
 });
 

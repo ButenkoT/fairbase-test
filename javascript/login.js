@@ -1,3 +1,5 @@
+window.ref = new Firebase('https://blazing-torch-6289.firebaseio.com');
+
 $(document).ready(function () {
   $(document.body)
 
@@ -23,7 +25,7 @@ $(document).ready(function () {
         console.log(arguments);
         if (authData) {
 
-          console.log(authData.twitter.accessToken);
+          console.log(authData.twitter.accessToken + ", User name: " + authData.twitter.displayName);
         } else {
           ref.unauth();
         }
@@ -74,7 +76,6 @@ $(document).ready(function () {
       console.log('logged out');
       $('.log').removeClass('hidden');
       $('.logout').addClass('hidden');
-
     }
   });
 });

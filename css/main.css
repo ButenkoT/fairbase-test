@@ -77,14 +77,13 @@ h2{
 }
 
 .game_window{
-    border: 2px solid white;
     width: 960px;
     height: 600px;
     margin: 10px auto;
 }
 
 .game_board{
-    border: 1px dashed white;
+    background: url("../images/game_board.jpg");
     width: 550px;
     height: 550px;
     display:inline-block;
@@ -93,12 +92,23 @@ h2{
 
 .chat{
     background: url("../images/chatboard.jpg");
-    border: 1px solid white;
-    width: 300px;
-    height: 550px;
+    width: 290px;
+    height: 540px;
     display: inline-block;
     vertical-align: top;
     color: white;
+    margin-left: 20px;
+    text-align: left;
+    padding: 5px;
+    line-height: 18px;
+}
+
+p{
+    margin:0px;
+}
+
+.chat input{
+    width: 284px;
 }
 
 footer{
