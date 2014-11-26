@@ -9,7 +9,6 @@ app.Views.UserLogin = Backbone.View.extend({
   },
 
   initialize: function () {
-
     $('#main').html(this.$el);
     this.render();
   },
@@ -23,7 +22,7 @@ app.Views.UserLogin = Backbone.View.extend({
     event.preventDefault();
     var $form = $(event.delegateTarget);
 
-    ref.authWithPassword(
+    app.ref.authWithPassword(
       {
         email: $form.find('[name="email"]').val(),
         password: $form.find('[name="password"]').val()
@@ -33,6 +32,7 @@ app.Views.UserLogin = Backbone.View.extend({
           console.log("Error authenticating user:", error);
           return;
         }
+        app.router.navigate('info_page', {trigger: true});
       },
       {remember: "sessionOnly"}
     );

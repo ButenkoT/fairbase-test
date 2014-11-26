@@ -31,7 +31,7 @@ app.Router = Backbone.Router.extend({
   //    view.render();
   //  }
   //},
-  //
+
   infoPage: function(){
     var infoPageShow = new app.Views.InfoPage();
   },

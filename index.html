@@ -16,7 +16,8 @@
     <a href="#login" id="login">Login</a>
     <a href="#register" id="registration">Register</a>
     <button class="anonymous btn">Anonym</button>
-  </div><br>
+  </div>
+  <br>
   <button class="logout btn">Logout</button>
 </header>
 
@@ -24,81 +25,88 @@
 
   <div id="main"></div>
 
-  <!--registration form-->
-  <script type="template/html" id="userNew">
-    <div class="info user-register">
-      <div class="inner_info">
-        <h2>Registration</h2>
-
-        <form action="" method="post" name="user">
-          Nickname: <input type="text" name="nickname" required="true" autofocus="true"><br>
-          Email: <input type="email" name="email" required="true"><br>
-          Password: <input type="password" name="password" required="true"><br>
-          <input type="submit" value="Submit" class="submit"/>
-        </form>
-      </div>
-    </div>
-
-  </script>
-
-  <!--login form-->
-  <script type="template/html" id="userLogin">
-    <div class="info user-login">
-      <div class="inner_info">
-
-        <form action="" method="post" name="user">
-          Email: <input type="email" name="email" required="true"><br>
-          Password: <input type="password" name="password" required="true"><br>
-          <input type="submit" value="Submit" class="submit"/>
-        </form>
-
-      </div>
-    </div>
-  </script>
-
-  <!--info_page with play button-->
-  <script type="template/html" id="introPage">
-    <div class="intro">
-      <div class="info">
-        <div class="inner_info">
-
-          <h2>Tic Tac Toe</h2>
-
-          <p>X always goes first. If a player is able to draw three X or three O in a row,
-            that player wins. If all nine squares are filled and neither player has three
-            in a row, the game is a draw.
-          </p>
-
-        </div>
-      </div>
-      <a href="#game_page" id="play_link">Play</a>
-
-    </div>
-  </script>
-
-  <!--TODO game_page-->
-
-  <script type="template/html" id="gamePage">
-    <a href="#">Exit</a>
-    <div class="game_window">
-
-      <div class="game_board">
-
-      </div>
-
-      <div class="chat">
-        <input type='text' id='messageInput' placeholder='Message'>
-        <div class="messagesDiv"></div>
-      </div>
-
-    </div>
-  </script>
-
 </div>
 
 <footer>
   &copy; 2014 T.Butenko
 </footer>
+
+
+<!--registration form-->
+<script type="template/html" id="userNew">
+  <div class="info user-register">
+    <div class="inner_info">
+      <h2>Registration</h2>
+
+      <form action="" method="post" name="user">
+        Nickname: <input type="text" name="nickname" required="true" autofocus="true"><br>
+        Email: <input type="email" name="email" required="true"><br>
+        Password: <input type="password" name="password" required="true"><br>
+        <input type="submit" value="Submit" class="submit"/>
+      </form>
+    </div>
+  </div>
+
+</script>
+
+<!--login form-->
+<script type="template/html" id="userLogin">
+  <div class="info user-login">
+    <div class="inner_info">
+
+      <form action="" method="post" name="user">
+        Email: <input type="email" name="email" required="true"><br>
+        Password: <input type="password" name="password" required="true"><br>
+        <input type="submit" value="Submit" class="submit"/>
+      </form>
+
+    </div>
+  </div>
+</script>
+
+<!--info_page with play button-->
+<script type="template/html" id="introPage">
+  <div class="intro">
+    <div class="info">
+      <div class="inner_info">
+
+        <h2>Tic Tac Toe</h2>
+
+        <p>X always goes first. If a player is able to draw three X or three O in a row,
+          that player wins. If all nine squares are filled and neither player has three
+          in a row, the game is a draw.
+        </p>
+
+      </div>
+    </div>
+    <a href="#game_page" id="play_link">Play</a>
+
+  </div>
+</script>
+
+<!--TODO game_page-->
+
+<script type="template/html" id="gamePageTemplate">
+  <a href="#">Exit</a>
+  <div class="game_window">
+
+    <div id="game_board"></div>
+    <div id="game_chat"></div>
+
+
+  </div>
+</script>
+
+<script type="template/html" id="gameChatTemplate">
+  <div class="chat">
+    <form action="" method="post">
+      <input type="text" id="text" placeholder="Message">
+      <button>Send</button>
+    </form>
+    <div class="messages-container"></div>
+  </div>
+</script>
+
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
@@ -106,15 +114,14 @@
 <script src="https://cdn.firebase.com/js/client/2.0.3/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/backbonefire/0.5.0/backbonefire.js"></script>
 <script src="javascript/main.js"></script>
-<script src="javascript/chat.js"></script>
 <script src="javascript/login.js"></script>
 <script src="javascript/router/Router.js"></script>
 <script src="javascript/views/registration.js"></script>
 <script src="javascript/views/user_login.js"></script>
 <script src="javascript/views/game_info.js"></script>
-<script src="javascript/models/game_page_model.js"></script>
-<script src="javascript/collections/game_page_collection.js"></script>
 <script src="javascript/views/game_page.js"></script>
+<script src="javascript/views/game_chat.js"></script>
+<script src="javascript/views/game_board.js"></script>
 
 
 </body>
