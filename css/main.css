@@ -12,6 +12,20 @@ header{
     height: 80px;
 }
 
+.links{
+    text-decoration: none;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 75px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+.links:hover{
+    color: rgba(178, 91, 10, 1);
+    text-shadow: 3px 3px 3px white;
+}
+
 .btn, header a{
     background: url("../images/brick.jpg");
     border-radius: 4px;
@@ -21,6 +35,17 @@ header{
     color:white;
     margin-left: 10px;
     line-height: 10px;
+    transition: box-shadow 0.5s;
+    border:1px solid white;
+}
+
+.btn:hover, header a:hover{
+    box-shadow: 2px 2px 4px white;
+}
+
+.btn:focus{
+    border:0;
+    outline:0;
 }
 
 header a {
@@ -32,6 +57,7 @@ header a {
 #registration{
     padding: 8px 14px;
 }
+
 .container{
     max-width: 960px;
     margin:auto;
@@ -72,7 +98,6 @@ input{
 .inner_info{
     background: url("../images/chalkonboard.jpg");
     font-family: 'Gloria Hallelujah', cursive;
-    color: white;
     font-size: 26px;
     border: 10px solid #100D1B;
     border-radius: 10px;
