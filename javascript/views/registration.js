@@ -24,7 +24,7 @@ app.Views.UserRegistration = Backbone.View.extend({
     var $form = $(event.delegateTarget);
     app.ref.createUser(
       {
-        nickname: $form.find('[name="nickname"]').val(),
+        displayName: $form.find('[name="nickname"]').val(),
         email: $form.find('[name="email"]').val(),
         password: $form.find('[name="password"]').val()
       },

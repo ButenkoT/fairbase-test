@@ -8,7 +8,7 @@ app.Views.GamePage = Backbone.View.extend({
   initialize: function () {
     $('#main').html(this.$el);
     this.render();
-    //new app.Views.GameBoard();
+    new app.Views.GameBoard();
     new app.Views.Chat();
   },
 

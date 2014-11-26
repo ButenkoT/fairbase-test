@@ -53,7 +53,6 @@ input{
 }
 
 .info{
-
     border: 20px solid #9D4E02;
     border-radius: 30px;
     height: 400px;
@@ -82,12 +81,29 @@ h2{
     margin: 10px auto;
 }
 
-.game_board{
+.board{
     background: url("../images/game_board.jpg");
     width: 550px;
     height: 550px;
     display:inline-block;
     margin-left: 0;
+}
+
+.board_cells{
+    margin-top: 50px;
+}
+
+.cell{
+    border: 1px solid white;
+    display:inline-block;
+    height: 130px;
+    width: 130px;
+    margin: 5px 0 0 5px;
+    vertical-align: top;
+}
+
+.cell p{
+   display: inline-block;
 }
 
 .chat{

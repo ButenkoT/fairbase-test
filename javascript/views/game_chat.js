@@ -1,7 +1,7 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.Chat = Backbone.View.extend({
+app.Views.GameBoard = Backbone.View.extend({
   el: '#game_chat',
   events: {
     'submit form': 'chatMessage'
@@ -26,7 +26,6 @@ app.Views.Chat = Backbone.View.extend({
     event.preventDefault();
 
     var $input = $(event.target).find('input');
-    app.ref.child('game_page/chat').push({text: $input.val()});
     $input.val('');
   }
 });
