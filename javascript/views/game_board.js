@@ -30,40 +30,56 @@ app.Views.GameBoard = Backbone.View.extend({
       var player2 = gamePageSnapshot.child('player2').val();
       var board = gamePageSnapshot.child('board').val();
       var $cell = $(event.target);
+      var sum = 0;
 
-//       if () {};
+      if(_.size(board) === 9){
+        return(alert('Tie!'));
 
-      if(player1.uid === app.uid){
-        $cell.data('value', "'" + player1.value + "'");
-        app.ref.child('game_page/board').push({
-          value: player1.value,
-          attr: $cell.data('attr'),
-          user: app.getName(),
-          uid: app.uid
-        });
+      } else if (_.size(board) %2 === 0) {
 
-      } else if (player2.uid === app.uid) {
-        $cell.data('value', "'" + player2.value + "'");
-        app.ref.child('game_page/board').push({
-          value: player2.value,
-          attr: $cell.data('attr'),
-          user: app.getName(),
-          uid: app.uid
-        });
+        if(player1.uid === app.uid){
+           $cell.data('value', "'" + player1.value + "'");
+           app.ref.child('game_page/board').push({
+             value: player1.value,
+             attr: $cell.data('attr'),
+             user: app.getName(),
+             uid: app.uid
+           });
+
+          sum = sum + parseInt($cell.data('attr'), 10);
+          _.each(board, function(b){
+            if(b.value === 'X'){
+              sum = sum + b.attr
+              if (sum === 15){
+                alert('Player1 win!');
+              }
+            } else { sum }
+          })
+        }
+      } else {
+
+        if (player2.uid === app.uid) {
+           $cell.data('value', "'" + player2.value + "'");
+           app.ref.child('game_page/board').push({
+             value: player2.value,
+             attr: $cell.data('attr'),
+             user: app.getName(),
+             uid: app.uid
+           });
+
+          sum = sum + parseInt($cell.data('attr'), 10);
+          _.each(board, function(b){
+            if(b.value === 'O'){
+              sum = sum + b.attr
+              if (sum === 15){
+                alert('Player2 win!');
+              }
+            } else { sum }
+          })
+        }
       }
-
     }, this);
 
-
-    //check if sum of all values X or O(which just made a move) is equal to 15
-
-    //if (sum == 15){
-    //   player wins
-    //   new app.Views.GameBoard();  --- render new board
-    // } else if (all cells values are set){
-    //  alert(tie)
-    // new app.Views.GameBoard();  --- render new board
-    //}
   }
 });
 
