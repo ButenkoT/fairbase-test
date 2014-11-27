@@ -16,13 +16,5 @@ app.getName = function(){
 };
 
 app.uid = app.ref.getAuth().uid;
-
-$(function () {
-  if ($('#main').length === 0) {
-    return;
-  }
-
-  app.router = new app.Router();
-  Backbone.history.start({pushState: false});
-});
-
+app.router = new app.Router();
+Backbone.history.start({pushState: false});
