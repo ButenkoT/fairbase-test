@@ -3,7 +3,7 @@ body{
     margin:0;
     padding:0;
     font-size: 16px;
-    color:white;
+    color: rgba(255,255,255,1);
     font-family: Verdana, serif;
 }
 
@@ -32,15 +32,15 @@ header{
     height: 35px;
     width: 95px;
     font-size: 16px;
-    color:white;
+    color: rgba(255,255,255,1);
     margin-left: 10px;
     line-height: 10px;
     transition: box-shadow 0.5s;
-    border:1px solid white;
+    border: 1px solid rgba(255,255,255,1);
 }
 
 .btn:hover, header a:hover{
-    box-shadow: 2px 2px 4px white;
+    box-shadow: 2px 2px 4px rgba(255,255,255,1);
 }
 
 .btn:focus{
@@ -65,7 +65,7 @@ header a {
 }
 
 #welcome{
-    background: url("../images/book.png");
+    background: url("../images/book.png") no-repeat;
     font-family: 'Gloria Hallelujah', cursive;
     height: 550px;
     width: 78%;
@@ -74,7 +74,7 @@ header a {
 
 #welcome p{
     text-align: left;
-    color: black;
+    color: rgba(0,0,0,1);
     font-size: 26px;
     margin: 30px 90px 20px 130px;
 }
@@ -103,7 +103,7 @@ input{
 }
 
 .info{
-    border: 20px solid #9D4E02;
+    border: 20px solid rgba(157, 78, 2, 1);
     border-radius: 30px;
     height: 400px;
     width: 600px;
@@ -114,7 +114,7 @@ input{
     background: url("../images/chalkonboard.jpg");
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 26px;
-    border: 10px solid #100D1B;
+    border: 10px solid rgba(16, 13, 27, 1);
     border-radius: 10px;
     height: 380px;
     width: 580px;
@@ -143,7 +143,7 @@ h2{
 }
 
 .cell{
-    border: 1px solid white;
+    border: 2px solid rgba(255,255,255,1);
     display:inline-block;
     height: 130px;
     width: 130px;
@@ -157,7 +157,7 @@ h2{
     height: 540px;
     display: inline-block;
     vertical-align: top;
-    color: white;
+    color: rgba(255,255,255,1);
     margin-left: 20px;
     text-align: left;
     padding: 5px;
@@ -175,7 +175,7 @@ p{
 footer{
     padding: 10px 30px 0 0;
     text-align: right;
-    color: white;
+    color: rgba(255,255,255,1);
     position: fixed;
     bottom: 0;
     right: 0;
