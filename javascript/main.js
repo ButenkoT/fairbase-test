@@ -15,8 +15,10 @@ app.getName = function(){
   return name;
 };
 
-app.router = new app.Router();
-Backbone.history.start({pushState: false});
-
 app.auth = app.ref.getAuth();
 app.uid = app.auth && app.auth.uid;
+
+$(function() {
+  app.router = new app.Router();
+  Backbone.history.start({pushState: false});
+});
