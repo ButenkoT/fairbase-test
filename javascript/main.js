@@ -1,6 +1,8 @@
 
 var app = app || {};
+
 app.ref = new Firebase('https://blazing-torch-6289.firebaseio.com');
+
 //TODO refactor this function getName
 app.getName = function(){
   var provider = app.ref.getAuth().provider,
