@@ -66,9 +66,17 @@ header a {
 
 #welcome{
     background: url("../images/book.png");
+    font-family: 'Gloria Hallelujah', cursive;
     height: 550px;
-    width: 750px;
+    width: 78%;
     margin: auto;
+}
+
+#welcome p{
+    text-align: left;
+    color: black;
+    font-size: 26px;
+    margin: 30px 90px 20px 130px;
 }
 
 .messagesDiv{
