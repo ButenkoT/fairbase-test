@@ -22,16 +22,6 @@ app.Router = Backbone.Router.extend({
     var userLog = new app.Views.UserLogin();
   },
 
-  //showAccount: function(id){
-  //  var account = app.accounts.get(id);
-  //  if(!account){
-  //    app.router.navigate('', true);
-  //  } else {
-  //    var view = new app.Views.AccountView({model: account});
-  //    view.render();
-  //  }
-  //},
-
   infoPage: function(){
     var infoPageShow = new app.Views.InfoPage();
   },

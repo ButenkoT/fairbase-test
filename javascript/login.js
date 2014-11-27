@@ -68,6 +68,7 @@ $(document).ready(function () {
   app.ref.onAuth(function (authData) {
     if (authData) {
       //TODO show user name
+      app.uid = app.ref.getAuth().uid;
       // user authenticated with Firebase
       console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
       $('.log').addClass('hidden');
