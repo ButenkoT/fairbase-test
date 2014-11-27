@@ -64,6 +64,13 @@ header a {
     text-align: center;
 }
 
+#welcome{
+    background: url("../images/book.png");
+    height: 550px;
+    width: 750px;
+    margin: auto;
+}
+
 .messagesDiv{
     margin: 20px 0;
 }

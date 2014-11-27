@@ -11,7 +11,7 @@ app.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    $('#main').empty();
+    var welcomeShow = new app.Views.WelcomePage();
   },
 
   userNew: function () {

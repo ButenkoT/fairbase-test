@@ -1,7 +1,7 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.Chat = Backbone.View.extend({
+app.Views.GameBoard = Backbone.View.extend({
   el: '#game_board',
   events: {
     'click .cell': 'clickCell'
@@ -9,7 +9,8 @@ app.Views.Chat = Backbone.View.extend({
 
   initialize: function () {
     this.render();
-    app.ref.child('game_page/board').on('child_added', this.renderCell.bind(this));
+    app.ref.child('game_page/board')
+      .on('child_added', this.renderCell.bind(this));
   },
 
   renderCell: function(xo) {
@@ -22,19 +23,25 @@ app.Views.Chat = Backbone.View.extend({
 
   clickCell: function(event) {
 
-    //if no users on this game-page
-    // for user app.ref.getAuth()[provider].uid get X values
-    //if there is 1 user get to 2nd user O value
-
     var $cell = $(event.target);
-    $cell.data('value', 'X');
-    app.ref.child('game_page/board').push({value: 'X', attr: $cell.data('attr'), user: app.getName()});
+    $cell.data('value', '"' + app.player1[1] + '"');
+    app.ref.child('game_page/board').push({
+      value: '"' + app.player1[1] + '"',
+      attr: $cell.data('attr'),
+      user: app.getName(),
+      uid: app.uid
+    });
+
 
     //check if sum of all values X or O(which just made a move) is equal to 15
-    //depends if X or O that user wins
-    //or if all cells have values end of game (tie) - clean board
 
-    //
+    //if (sum == 15){
+    //   player wins
+    //   new app.Views.GameBoard();  --- render new board
+    // } else if (all cells values are set){
+    //  alert(tie)
+    // new app.Views.GameBoard();  --- render new board
+    //}
   }
 });
 

@@ -27,6 +27,7 @@ app.Views.UserLogin = Backbone.View.extend({
         email: $form.find('[name="email"]').val(),
         password: $form.find('[name="password"]').val()
       },
+
       function (error, authData) {
         if (error) {
           console.log("Error authenticating user:", error);

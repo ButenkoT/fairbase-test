@@ -1,7 +1,7 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.GameBoard = Backbone.View.extend({
+app.Views.Chat = Backbone.View.extend({
   el: '#game_chat',
   events: {
     'submit form': 'chatMessage'
@@ -9,7 +9,8 @@ app.Views.GameBoard = Backbone.View.extend({
 
   initialize: function () {
     this.render();
-    app.ref.child('game_page/chat').on('child_added', this.renderMessage.bind(this));
+    app.ref.child('game_page/chat')
+      .on('child_added', this.renderMessage.bind(this));
   },
 
   renderMessage: function(message) {
@@ -24,10 +25,13 @@ app.Views.GameBoard = Backbone.View.extend({
   chatMessage: function(event){
     event.preventDefault();
 
-    //TODO better save uid then name (same about messages)
-
     var $input = $(event.target).find('input');
-    app.ref.child('game_page/chat').push({text: $input.val(), user: app.getName()});
+    app.ref.child('game_page/chat')
+      .push({
+        text: $input.val(),
+        user: app.getName(),
+        userId: app.uid});
+
     $input.val('');
   }
 });
