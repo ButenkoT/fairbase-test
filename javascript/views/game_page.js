@@ -8,7 +8,7 @@ app.Views.GamePage = Backbone.View.extend({
   initialize: function () {
     $('#main').html(this.$el);
 
-    var gamePage = new Firebase('https://blazing-torch-6289.firebaseio.com/game_page');
+    var gamePage = new Firebase(app.firebase + '/game_page');
 
     gamePage.once('value', function (gamePageSnapshot) {
       var player1 = gamePageSnapshot.child('player1').val();

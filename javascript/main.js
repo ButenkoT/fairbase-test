@@ -1,7 +1,7 @@
 
 var app = app || {};
-
-app.ref = new Firebase('https://blazing-torch-6289.firebaseio.com');
+app.firebase = localStorage.firebase || 'https://tictactoewithchat.firebaseio.com';
+app.ref = new Firebase(app.firebase);
 
 //TODO refactor this function getName
 app.getName = function(){
