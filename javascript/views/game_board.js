@@ -32,51 +32,36 @@ app.Views.GameBoard = Backbone.View.extend({
       var $cell = $(event.target);
       var sum = 0;
 
-      if(_.size(board) === 9){
-        return(alert('Tie!'));
-
-      } else if (_.size(board) %2 === 0) {
-
-        if(player1.uid === app.uid){
-           $cell.data('value', "'" + player1.value + "'");
-           app.ref.child('game_page/board').push({
-             value: player1.value,
-             attr: $cell.data('attr'),
-             user: app.getName(),
-             uid: app.uid
-           });
-
-          sum = sum + parseInt($cell.data('attr'), 10);
-          _.each(board, function(b){
-            if(b.value === 'X'){
-              sum = sum + b.attr
-              if (sum === 15){
-                alert('Player1 win!');
-              }
-            } else { sum }
-          })
-        }
-      } else {
-
-        if (player2.uid === app.uid) {
-           $cell.data('value', "'" + player2.value + "'");
-           app.ref.child('game_page/board').push({
-             value: player2.value,
-             attr: $cell.data('attr'),
-             user: app.getName(),
-             uid: app.uid
-           });
+      var choosePlayer = function(player){
+        if (player.uid === app.uid) {
+          $cell.data('value', "'" + player.value + "'");
+          app.ref.child('game_page/board').push({
+            value: player.value,
+            attr: $cell.data('attr'),
+            user: app.getName(),
+            uid: app.uid
+          });
 
           sum = sum + parseInt($cell.data('attr'), 10);
           _.each(board, function(b){
             if(b.value === 'O'){
               sum = sum + b.attr
               if (sum === 15){
-                alert('Player2 win!');
+                alert( player.app.getName() + ' win!');
               }
             } else { sum }
           })
         }
+      }
+
+      if(_.size(board) === 9){
+        return(alert('Tie!'));
+
+      } else if (_.size(board) %2 === 0) {
+        choosePlayer(player1);
+
+      } else {
+        choosePlayer(player2);
       }
     }, this);
 
