@@ -35,6 +35,7 @@ app.Views.GameBoard = Backbone.View.extend({
       var choosePlayer = function(player){
         if (player.uid === app.uid) {
           $cell.data('value', "'" + player.value + "'");
+
           app.ref.child('game_page/board').push({
             value: player.value,
             attr: $cell.data('attr'),
@@ -42,17 +43,24 @@ app.Views.GameBoard = Backbone.View.extend({
             uid: app.uid
           });
 
-          sum = sum + parseInt($cell.data('attr'), 10);
-          _.each(board, function(b){
-            if(b.value === 'O'){
-              sum = sum + b.attr
-              if (sum === 15){
-                alert( player.app.getName() + ' win!');
-              }
-            } else { sum }
-          })
+          checkWinner(player);
         }
-      }
+      };
+
+      var checkWinner = function(player){
+        sum = sum + parseInt($cell.data('attr'), 10);
+
+        _.each(board, function(b){
+          if(b.value === 'O'){
+            sum = sum + b.attr;
+
+            if (sum === 15){
+              alert( player.app.name + ' win!');
+            }
+
+          } else { sum }
+        })
+      };
 
       if(_.size(board) === 9){
         return(alert('Tie!'));
