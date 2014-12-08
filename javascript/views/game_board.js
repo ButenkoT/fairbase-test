@@ -51,27 +51,30 @@ app.Views.GameBoard = Backbone.View.extend({
         sum = sum + parseInt($cell.data('attr'), 10);
 
         _.each(board, function(b){
-          if(b.value === 'O'){
+          if(b.value === player.value){
             sum = sum + b.attr;
 
             if (sum === 15){
-              alert( player.app.name + ' win!');
+              alert( player + ' win!');
             }
 
           } else { sum }
         })
       };
 
-      if(_.size(board) === 9){
-        return(alert('Tie!'));
+
+      if (_.size(board) === 9) {
+        return (alert('Tie!'));
 
       } else if (_.size(board) %2 === 0) {
         choosePlayer(player1);
 
-      } else {
+      } else if (_.size(board) %2 != 0){
         choosePlayer(player2);
+
       }
-    }, this);
+
+  }, this);
 
   }
 });
