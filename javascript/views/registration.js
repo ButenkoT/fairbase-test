@@ -40,4 +40,4 @@ app.Views.UserRegistration = Backbone.View.extend({
   }
 });
 
-//TODO fix saving name of user, cos I cannot reach it
+//TODO: refactor saving name, cos cannot reach name
