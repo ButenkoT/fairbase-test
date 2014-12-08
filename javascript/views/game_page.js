@@ -32,6 +32,7 @@ app.Views.GamePage = Backbone.View.extend({
 
       } else {
         alert('no room in game please wait');
+        //TODO generate new game_page
       }
       console.log('player1, player2', player1, player2);
     }, this);
@@ -46,8 +47,8 @@ app.Views.GamePage = Backbone.View.extend({
 
 });
 
-//player 1 player 2 slots,(with uid) assign values x or o to them. when 1 slot is empty drop user in after he press play.
+//player1 player2 slots,(with uid) assign values x or o to them. when 1 slot is empty drop user in after he press play.
 //if 1 user left give alert to user who is still in to leave game and start a new game.
 //alert('Your opponent left. Press ok to start a new game'); and it send him on a new generated game_page
-//if 2 users lft close game_page
-//if no 1 slot free create new game_page(generate new board and chat)
+//if 2 users left close game_page
+//if no slot free create new game_page(generate new board and chat)

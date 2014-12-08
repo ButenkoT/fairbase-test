@@ -14,7 +14,10 @@ app.Views.GameBoard = Backbone.View.extend({
   },
 
   renderCell: function(xo) {
-    this.$el.find('.cell[data-attr="'+xo.val().attr+'"]').text(xo.val().value);
+    this.$el.find('.cell[data-attr="'+xo.val().attr+'"]')
+      .text(xo.val().value)
+      .data('value', xo.val().value)
+    ;
   },
 
   render: function () {
@@ -32,9 +35,8 @@ app.Views.GameBoard = Backbone.View.extend({
       var $cell = $(event.target);
       var sum = 0;
 
-      var choosePlayer = function(player){
-        if (player.uid === app.uid) {
-          $cell.data('value', "'" + player.value + "'");
+      var playersMove = function(player){
+        if (player.uid === app.uid && !$cell.data('value')){
 
           app.ref.child('game_page/board').push({
             value: player.value,
@@ -67,9 +69,9 @@ app.Views.GameBoard = Backbone.View.extend({
         return (alert('Tie!'));
         //TODO render new board
       } else if (_.size(board) %2 === 0) {
-        choosePlayer(player1);
+        playersMove(player1);
       } else if (_.size(board) %2 != 0){
-        choosePlayer(player2);
+        playersMove(player2);
       }
     }, this);
   }
