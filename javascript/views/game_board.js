@@ -25,34 +25,29 @@ app.Views.GameBoard = Backbone.View.extend({
       var player1 = gamePageSnapshot.child('player1').val();
       var player2 = gamePageSnapshot.child('player2').val();
       var board = gamePageSnapshot.child('board').val();
-      var $cell = $(event.target);
       var sum = 0;
 
       var checkWinner = function(player){
-        sum = sum + parseInt($cell.data('attr'), 10);
-
-        _.each(board, function(b){
-          if(b.value === player.value){
-            sum = sum + b.attr;
+        _.each(board, function(cell){
+          if(cell.value === player.value){
+            sum = sum + cell.attr;
 
             if (sum === 15){
               alert( player.name + ' win!');
               //TODO render new board
             }
-
           } else { sum }
         })
       };
 
-      if (_.size(board) === 9) {
+      if (_.size(board) %2 === 0) {
+        checkWinner(player2);
+      } else if (_.size(board) %2 != 0){
+        checkWinner(player1);
+      } else if (_.size(board) === 9) {
         return (alert('Tie!'));
         //TODO render new board
-      } else if (_.size(board) %2 === 0) {
-        checkWinner(player1);
-      } else if (_.size(board) %2 != 0){
-        checkWinner(player2);
       }
-
     }, this);
   },
 
