@@ -36,7 +36,7 @@ app.Views.GameBoard = Backbone.View.extend({
               alert( player.name + ' win!');
               //TODO render new board
             }
-          } else { sum }
+          }
         })
       };
 
