@@ -18,13 +18,6 @@ app.Views.GameBoard = Backbone.View.extend({
       .text(xo.val().value)
       .data('value', xo.val().value)
     ;
-  },
-
-  render: function () {
-    this.$el.html($('#gameBoardTemplate').html());
-  },
-
-  clickCell: function(event) {
 
     var gamePage = new Firebase(app.firebase + '/game_page');
 
@@ -34,20 +27,6 @@ app.Views.GameBoard = Backbone.View.extend({
       var board = gamePageSnapshot.child('board').val();
       var $cell = $(event.target);
       var sum = 0;
-
-      var playersMove = function(player){
-        if (player.uid === app.uid && !$cell.data('value')){
-
-          app.ref.child('game_page/board').push({
-            value: player.value,
-            attr: $cell.data('attr'),
-            user: app.getName(),
-            uid: app.uid
-          });
-
-          checkWinner(player);
-        }
-      };
 
       var checkWinner = function(player){
         sum = sum + parseInt($cell.data('attr'), 10);
@@ -69,11 +48,48 @@ app.Views.GameBoard = Backbone.View.extend({
         return (alert('Tie!'));
         //TODO render new board
       } else if (_.size(board) %2 === 0) {
+        checkWinner(player1);
+      } else if (_.size(board) %2 != 0){
+        checkWinner(player2);
+      }
+
+    }, this);
+  },
+
+  render: function () {
+    this.$el.html($('#gameBoardTemplate').html());
+  },
+
+  clickCell: function(event) {
+    var gamePage = new Firebase(app.firebase + '/game_page');
+
+    gamePage.once('value', function (gamePageSnapshot) {
+      var player1 = gamePageSnapshot.child('player1').val();
+      var player2 = gamePageSnapshot.child('player2').val();
+      var board = gamePageSnapshot.child('board').val();
+      var $cell = $(event.target);
+
+      var playersMove = function(player){
+        if (player.uid === app.uid && !$cell.data('value')){
+
+          app.ref.child('game_page/board').push({
+            value: player.value,
+            attr: $cell.data('attr'),
+            user: app.getName(),
+            uid: app.uid
+          });
+        }
+      };
+
+      if (_.size(board) === 9) {
+        return (alert('Tie!'));
+      } else if (_.size(board) %2 === 0) {
         playersMove(player1);
       } else if (_.size(board) %2 != 0){
         playersMove(player2);
       }
     }, this);
+
   }
 });
 
