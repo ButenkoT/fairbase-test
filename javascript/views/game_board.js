@@ -55,27 +55,23 @@ app.Views.GameBoard = Backbone.View.extend({
             sum = sum + b.attr;
 
             if (sum === 15){
-              alert( player + ' win!');
+              alert( player.name + ' win!');
+              //TODO render new board
             }
 
           } else { sum }
         })
       };
 
-
       if (_.size(board) === 9) {
         return (alert('Tie!'));
-
+        //TODO render new board
       } else if (_.size(board) %2 === 0) {
         choosePlayer(player1);
-
       } else if (_.size(board) %2 != 0){
         choosePlayer(player2);
-
       }
-
-  }, this);
-
+    }, this);
   }
 });
 
