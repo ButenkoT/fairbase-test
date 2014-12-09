@@ -15,8 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/**/*.js',
-      'test/**/*Spec.js'
+      'lib/jquery.js',
+      'lib/underscore.js',
+      'lib/backbone.js',
+      'lib/firebase.js',
+      'javascript/**/*.js',
+      'tests/**/*Spec.js'
     ],
 
 
