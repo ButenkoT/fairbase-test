@@ -70,7 +70,7 @@ $(document).ready(function () {
       //TODO show user name
       app.uid = app.ref.getAuth().uid;
       // user authenticated with Firebase
-      console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+      console.log("User ID: " + authData.uid + ", Provider: " + authData.provider + ", Name: " + authData.name);
       $('.log').addClass('hidden');
       $('.logout').removeClass('hidden');
     } else {

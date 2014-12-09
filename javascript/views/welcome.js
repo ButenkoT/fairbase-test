@@ -6,7 +6,6 @@ app.Views.WelcomePage = Backbone.View.extend({
     id: 'welcomeForm',
 
   initialize: function () {
-
     $('#main').html(this.$el);
     this.render();
   },

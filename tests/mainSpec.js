@@ -16,11 +16,17 @@ describe('welcome.js spec', function () {
   describe('when welcome-view is rendered', function () {
 
     beforeEach(function () {
+      $('.container').append('div#main');
       welcome.render();
     });
 
+    afterEach(function(){
+      $('.container').empty();
+    });
+
+
     it ('should create welcomeForm', function () {
-      expect(welcome.$el).toBe('div');
+      expect(($('#main').find('#welcomeForm')).length).toEqual(1);
     });
 
   });
